@@ -1,6 +1,8 @@
 #!/usr/local/casperscript/bin/cs --
 /centershow {
-  dup false charpath pathbbox #stack
+  gsave
+    dup false charpath [pathbbox] #stack
+  grestore
 } bind def
 scriptname (sodaki) eq {
   /TimesNewRoman-Bold 40 selectfont
