@@ -13,6 +13,7 @@
 } bind def
 /box {
   gsave
+  (drawing box at ) #only currentpoint exch #only (, ) #only #
   3 dict begin
   /boxwidth exch def
   /radius 10 def
