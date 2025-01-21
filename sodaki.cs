@@ -51,9 +51,9 @@ scriptname (sodaki) eq {
   % draw a grid pagewidth x pagewidth, of black squares with some missing
   % leave 20 pixels at bottom for author name
   currentpoint 20 sub exch pop  % page height remaining
-  pagewidth #stack
-  dup dup .8 mul 4 div exch
-  0 exch neg #stack rmoveto 4 boxrow
+  pagewidth dup
+  dup margin dup add sub rowlength div exch
+  margin exch neg #stack rmoveto 4 boxrow
   (stack at end of sodaki: ) #only #stack
   showpage
 } if
