@@ -53,7 +53,7 @@ scriptname (sodaki) eq {
   % leave 20 pixels at bottom for author name
   currentpoint 20 sub exch pop  % page height remaining
   pagewidth dup margin dup add sub rowlength div exch
-  margin exch neg #stack rmoveto boxrow
+  margin exch neg rmoveto 2 copy div cvi exch boxrow
   (stack at end of sodaki: ) #only #stack
   showpage
 } if
