@@ -18,8 +18,8 @@
   /boxwidth exch def
   /radius 10 def
   /spacing radius 2 div def
-  spacing 0 rmoveto boxwidth spacing sub 0 rlineto  % bottom line
-  currentpoint exch spacing add exch radius 0 90 arc stroke
+  spacing radius add 0 rmoveto boxwidth spacing sub 0 rlineto  % bottom line
+  currentpoint exch spacing add exch radius add radius -90 0 arc stroke
   grestore
   end
 } bind def
