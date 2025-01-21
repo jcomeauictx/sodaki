@@ -18,7 +18,7 @@
   4 dict begin
   /boxwidth exch def
   /radius 10 def 
-  /spacing radius 2 div def
+  /spacing radius def
   /side boxwidth radius dup add sub spacing sub def  % straight part of side
   spacing radius add 0 rmoveto
   side 0 rlineto  % bottom line
