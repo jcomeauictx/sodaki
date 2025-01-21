@@ -11,7 +11,7 @@
 } bind def
 /grid {
 } bind def
-/box {  % width -
+/box {  % boxwidth -
   % arc takes args: x y r angle0 angle1 (in degrees)
   gsave
   (drawing ) #only dup #only ( pixel box at ) #only
@@ -21,8 +21,10 @@
   /side boxwidth radius dup add sub spacing sub def  % straight part of side
   radius spacing add 0 rmoveto
   rowlength {
-    side 0 rlineto  % bottom line
-    currentpoint exch spacing add exch radius add radius -90 0 arc
+    side 0 rlineto
+    % position x and y for curved corner
+    currentpoint radius add
+    radius -90 0 arc
     0 90 rotate
   } repeat
   closepath fill
@@ -33,7 +35,7 @@
 /boxrow {  % boxwidth -
   1 dict begin
   /boxwidth exch def
-  spacing 1.5 mul neg 0 rmoveto  % ensures even margins
+  spacing 0.5 mul neg 0 rmoveto  % ensures even margins
   rowlength {boxwidth box boxwidth 0 rmoveto} repeat
   end
   (stack at end of boxrow: ) #only #stack
