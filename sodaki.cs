@@ -43,7 +43,7 @@
 /boxrows {  % boxwidth rows -
   (stack at start of boxrows: ) #only #stack
   {gsave dup boxrow grestore 0 1 index rmoveto}
-  repeat
+  repeat pop  % discard boxwidth at end of loop
 } bind def
 scriptname (sodaki) eq {
   /margin 20 def  % minimum margin in pixels
@@ -60,6 +60,7 @@ scriptname (sodaki) eq {
   pagewidth dup margin dup add sub rowlength div exch
   margin exch neg rmoveto exch 1 index #stack div cvi #stack boxrows
   (stack at end of sodaki: ) #only #stack
+  0 margin moveto (John Otis Comeau) centershow
   showpage
 } if
 % vim: tabstop=8 shiftwidth=2 softtabstop=2 syntax=postscr
