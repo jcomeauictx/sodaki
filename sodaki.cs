@@ -17,14 +17,17 @@
   (drawing box at ) #only currentpoint exch #only (, ) #only #
   3 dict begin
   /boxwidth exch def
-  /radius 10 def
+  /radius 10 def 
+  /side boxwidth radius dup add sub def  % straight part of side
   /spacing radius 2 div def
-  spacing radius add 0 rmoveto boxwidth spacing sub 0 rlineto  % bottom line
+  spacing radius add 0 rmoveto
+  side 0 rlineto  % bottom line
   currentpoint exch spacing add exch radius add radius -90 0 arc
-  0 boxwidth radius dup add sub rlineto
+  0 side rlineto
   currentpoint exch radius sub exch radius 0 90 arc
-  boxwidth radius dup add sub neg 0 rlineto
-  currentpoint radius sub radius 90 180 arc stroke
+  side neg 0 rlineto
+  currentpoint radius sub radius 90 180 arc
+  0 side rlineto stroke
   grestore
   end
 } bind def
