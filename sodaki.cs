@@ -22,8 +22,9 @@
   radius spacing add 0 rmoveto
   (stack before box loop: ) #only #stack
   rowlength {
-    pop  % no use for loop counter, discard
+    #stack
     side 0 rlineto
+    #stack
     % position x and y for curved corner
     currentpoint radius add
     radius -90 0 arc
