@@ -14,7 +14,8 @@
 /box {  % width -
   % arc takes args: x y r angle0 angle1 (in degrees)
   gsave
-  (drawing box at ) #only currentpoint exch #only (, ) #only #
+  (drawing ) #only dup #only ( pixel box at ) #only
+  currentpoint exch #only (, ) #only #
   4 dict begin
   /boxwidth exch def
   /radius 10 def 
