@@ -22,7 +22,9 @@
   spacing radius add 0 rmoveto boxwidth spacing sub 0 rlineto  % bottom line
   currentpoint exch spacing add exch radius add radius -90 0 arc
   0 boxwidth radius dup add sub rlineto
-  currentpoint exch radius sub exch radius 0 90 arc stroke
+  currentpoint exch radius sub exch radius 0 90 arc
+  boxwidth radius dup add sub neg 0 rlineto
+  currentpoint radius sub radius 90 180 arc stroke
   grestore
   end
 } bind def
