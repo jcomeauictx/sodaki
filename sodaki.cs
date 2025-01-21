@@ -21,14 +21,14 @@
   /side boxwidth radius dup add sub spacing sub def  % straight part of side
   radius spacing add 0 rmoveto
   (stack before box loop: ) #only #stack
-  rowlength {
-    #stack
+  4 {
+    (stack at start of box loop) #only #stack
     side 0 rlineto
-    #stack
     % position x and y for curved corner
     currentpoint radius add
-    radius -90 0 arc
-    0 90 rotate
+    #stack
+    radius -90 0 #stack arc #stack
+    90 rotate #stack
   } repeat
   closepath fill
   grestore
