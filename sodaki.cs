@@ -33,7 +33,7 @@ scriptname (sodaki) eq {
   currentpoint 20 sub exch pop  % page height remaining
   pagewidth min #stack
   dup .8 mul 4 div exch
-  0 exch #stack rmoveto box
+  0 exch neg #stack rmoveto box
   showpage
 } if
 % vim: tabstop=8 shiftwidth=2 softtabstop=2 syntax=postscr
