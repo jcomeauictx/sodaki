@@ -12,6 +12,7 @@
 /grid {
 } bind def
 /box {
+  % arc takes args: x y r angle0 angle1 (in degrees)
   gsave
   (drawing box at ) #only currentpoint exch #only (, ) #only #
   3 dict begin
@@ -19,7 +20,9 @@
   /radius 10 def
   /spacing radius 2 div def
   spacing radius add 0 rmoveto boxwidth spacing sub 0 rlineto  % bottom line
-  currentpoint exch spacing add exch radius add radius -90 0 arc stroke
+  currentpoint exch spacing add exch radius add radius -90 0 arc
+  0 boxwidth radius dup add sub rlineto
+  currentpoint exch radius sub exch radius 0 90 arc stroke
   grestore
   end
 } bind def
