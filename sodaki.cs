@@ -27,7 +27,7 @@
     radius -90 0 arc
     90 rotate
   } repeat
-  closepath fill
+  closepath rand 10 mod 3 ge {fill} {} ifelse
   grestore
   end
   (stack at end of box: ) #only #stack
@@ -59,8 +59,8 @@ scriptname (sodaki) eq {
   currentpoint 20 sub exch pop  % page height remaining
   pagewidth dup margin dup add sub rowlength div exch
   margin exch neg rmoveto exch 1 index #stack div cvi #stack boxrows
-  (stack at end of sodaki: ) #only #stack
   0 margin moveto (John Otis Comeau) centershow
   showpage
+  (stack at end of sodaki: ) #only #stack
 } if
 % vim: tabstop=8 shiftwidth=2 softtabstop=2 syntax=postscr
