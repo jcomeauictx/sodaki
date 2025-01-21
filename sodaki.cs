@@ -11,7 +11,7 @@
 } bind def
 /grid {
 } bind def
-/box {
+/box {  % width -
   % arc takes args: x y r angle0 angle1 (in degrees)
   gsave
   (drawing box at ) #only currentpoint exch #only (, ) #only #
@@ -31,6 +31,15 @@
   currentpoint exch radius add exch radius 180 270 arc closepath fill
   grestore
   end
+  (stack at end of box: ) #only #stack
+} bind def
+/boxrow {  % boxwidth boxes -
+  2 dict begin
+  /boxes exch def
+  /boxwidth exch def
+  boxes {boxwidth box boxwidth 0 rmoveto} repeat
+  end
+  (stack at end of boxrow: ) #only #stack
 } bind def
 scriptname (sodaki) eq {
   /TimesNewRoman-Bold 80 selectfont
@@ -42,7 +51,7 @@ scriptname (sodaki) eq {
   currentpoint 20 sub exch pop  % page height remaining
   pagewidth min #stack
   dup .8 mul 4 div exch
-  0 exch neg #stack rmoveto box
+  0 exch neg #stack rmoveto 4 boxrow
   showpage
 } if
 % vim: tabstop=8 shiftwidth=2 softtabstop=2 syntax=postscr
