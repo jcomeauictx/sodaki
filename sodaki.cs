@@ -18,8 +18,6 @@
   currentpoint exch #only (, ) #only #
   4 dict begin
   /boxwidth exch def
-  /radius 10 def 
-  /spacing radius def
   /side boxwidth radius dup add sub spacing sub def  % straight part of side
   spacing radius add 0 rmoveto
   side 0 rlineto  % bottom line
@@ -34,17 +32,19 @@
   end
   (stack at end of box: ) #only #stack
 } bind def
-/boxrow {  % boxwidth boxes -
-  2 dict begin
-  /boxes exch def
+/boxrow {  % boxwidth -
+  1 dict begin
   /boxwidth exch def
-  boxes {boxwidth box boxwidth 0 rmoveto} repeat
+  spacing 1.5 mul neg 0 rmoveto  % ensures even margins
+  rowlength {boxwidth box boxwidth 0 rmoveto} repeat
   end
   (stack at end of boxrow: ) #only #stack
 } bind def
 scriptname (sodaki) eq {
   /margin 20 def  % minimum margin in pixels
   /rowlength 4 def  % boxes in a row
+  /radius margin 2 div def  % radius of curved corners
+  /spacing margin 2 div def
   /TimesNewRoman-Bold 80 selectfont
   0 pageheight 80 sub moveto (SODAKI) centershow
   /TimesNewRoman-Bold 20 selectfont
@@ -54,7 +54,7 @@ scriptname (sodaki) eq {
   currentpoint 20 sub exch pop  % page height remaining
   pagewidth dup
   dup margin dup add sub rowlength div exch
-  margin exch neg #stack rmoveto 4 boxrow
+  margin exch neg #stack rmoveto boxrow
   (stack at end of sodaki: ) #only #stack
   showpage
 } if
