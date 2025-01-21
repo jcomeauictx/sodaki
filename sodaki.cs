@@ -47,7 +47,7 @@
 } bind def
 scriptname (sodaki) eq {
   /margin 20 def  % minimum margin in pixels
-  /rowlength 4 def  % boxes in a row
+  /rowlength 6 def  % boxes in a row
   /radius margin 2 div def  % radius of curved corners
   /spacing margin 2 div def
   /TimesNewRoman-Bold 80 selectfont
@@ -58,7 +58,7 @@ scriptname (sodaki) eq {
   % leave 20 pixels at bottom for author name
   currentpoint 20 sub exch pop  % page height remaining
   pagewidth dup margin dup add sub rowlength div exch
-  margin exch neg rmoveto exch 1 index #stack div cvi #stack boxrows
+  margin exch neg rmoveto exch 1 index sub 1 index #stack div cvi #stack boxrows
   0 margin moveto (John Otis Comeau) centershow
   showpage
   (stack at end of sodaki: ) #only #stack
