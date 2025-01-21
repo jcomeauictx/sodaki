@@ -42,6 +42,8 @@
   (stack at end of boxrow: ) #only #stack
 } bind def
 scriptname (sodaki) eq {
+  /margin 20 def  % minimum margin in pixels
+  /rowlength 4 def  % boxes in a row
   /TimesNewRoman-Bold 80 selectfont
   0 pageheight 80 sub moveto (SODAKI) centershow
   /TimesNewRoman-Bold 20 selectfont
@@ -49,9 +51,10 @@ scriptname (sodaki) eq {
   % draw a grid pagewidth x pagewidth, of black squares with some missing
   % leave 20 pixels at bottom for author name
   currentpoint 20 sub exch pop  % page height remaining
-  pagewidth min #stack
-  dup .8 mul 4 div exch
+  pagewidth #stack
+  dup dup .8 mul 4 div exch
   0 exch neg #stack rmoveto 4 boxrow
+  (stack at end of sodaki: ) #only #stack
   showpage
 } if
 % vim: tabstop=8 shiftwidth=2 softtabstop=2 syntax=postscr
