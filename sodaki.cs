@@ -16,7 +16,7 @@
   gsave
   (drawing ) #only dup #only ( pixel box at ) #only
   currentpoint exch #only (, ) #only #
-  4 dict begin
+  2 dict begin
   /boxwidth exch def
   /side boxwidth radius dup add sub spacing sub def  % straight part of side
   radius spacing add 0 rmoveto
@@ -52,8 +52,7 @@ scriptname (sodaki) eq {
   % draw a grid pagewidth x pagewidth, of black squares with some missing
   % leave 20 pixels at bottom for author name
   currentpoint 20 sub exch pop  % page height remaining
-  pagewidth dup
-  dup margin dup add sub rowlength div exch
+  pagewidth dup margin dup add sub rowlength div exch
   margin exch neg #stack rmoveto boxrow
   (stack at end of sodaki: ) #only #stack
   showpage
