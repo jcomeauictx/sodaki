@@ -27,7 +27,8 @@
   currentpoint exch radius sub exch radius 0 90 arc
   side neg 0 rlineto
   currentpoint radius sub radius 90 180 arc
-  0 side rlineto stroke
+  0 side neg rlineto
+  currentpoint exch radius add exch radius 180 270 arc closepath fill
   grestore
   end
 } bind def
