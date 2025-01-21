@@ -15,11 +15,11 @@
   % arc takes args: x y r angle0 angle1 (in degrees)
   gsave
   (drawing box at ) #only currentpoint exch #only (, ) #only #
-  3 dict begin
+  4 dict begin
   /boxwidth exch def
   /radius 10 def 
-  /side boxwidth radius dup add sub def  % straight part of side
   /spacing radius 2 div def
+  /side boxwidth radius dup add sub spacing sub def  % straight part of side
   spacing radius add 0 rmoveto
   side 0 rlineto  % bottom line
   currentpoint exch spacing add exch radius add radius -90 0 arc
