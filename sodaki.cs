@@ -19,15 +19,13 @@
   4 dict begin
   /boxwidth exch def
   /side boxwidth radius dup add sub spacing sub def  % straight part of side
-  spacing radius add 0 rmoveto
-  side 0 rlineto  % bottom line
-  currentpoint exch spacing add exch radius add radius -90 0 arc
-  0 side rlineto
-  currentpoint exch radius sub exch radius 0 90 arc
-  side neg 0 rlineto
-  currentpoint radius sub radius 90 180 arc
-  0 side neg rlineto
-  currentpoint exch radius add exch radius 180 270 arc closepath fill
+  radius spacing add 0 rmoveto
+  rowlength {
+    side 0 rlineto  % bottom line
+    currentpoint exch spacing add exch radius add radius -90 0 arc
+    0 90 rotate
+  } repeat
+  closepath fill
   grestore
   end
   (stack at end of box: ) #only #stack
