@@ -1,6 +1,6 @@
 #!/usr/local/casperscript/bin/cs --
 /scriptname where
-  {pop}
+  {(found scriptname: ) #only scriptname # pop}
   {
     (started without casperscript extensions, including them now...) =
     (casperscript.ps) runlibfile
@@ -54,7 +54,7 @@
   {gsave dup boxrow grestore 0 1 index rmoveto}
   repeat pop  % discard boxwidth at end of loop
 } bind def
-scriptname (sodaki) eq {
+[(sodaki) (cs)] scriptname array.contains {
   0 setgray  % draw in black (default, but explicit to debug blank page)
   /margin 20 def  % minimum margin in pixels
   /rowlength 6 def  % boxes in a row
