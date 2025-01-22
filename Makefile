@@ -9,4 +9,6 @@ push:
 	git push -u githost master
 bookcover.pdf: sodaki.cs .FORCE
 	tail -n +2 $< | gs -sDEVICE=pdfwrite -o $@ -
+bookcover.png: bookcover.pdf
+	convert $< -background white -alpha remove $@
 .FORCE:
