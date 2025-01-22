@@ -28,7 +28,7 @@
     radius -90 0 arc
     90 rotate
   } repeat
-  closepath rand 10 mod 3 ge {fill} {} ifelse
+  closepath rand 10 mod 7 le {fill} {} ifelse
   grestore
   end
   (stack at end of box: ) #only #stack
@@ -47,6 +47,7 @@
   repeat pop  % discard boxwidth at end of loop
 } bind def
 scriptname (sodaki) eq {
+  0 setgray  % draw in black (default, but explicit to debug blank page)
   /margin 20 def  % minimum margin in pixels
   /rowlength 6 def  % boxes in a row
   /radius margin 2 div def  % radius of curved corners
