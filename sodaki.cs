@@ -1,4 +1,5 @@
 #!/usr/local/casperscript/bin/cs --
+/scriptname where {pop} {(casper.ps) runlibfile} ifelse
 /centershow {
   gsave
     dup false charpath pathbbox pop #stack  % pop yt, we only need xl and xr
