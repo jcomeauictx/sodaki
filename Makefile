@@ -1,5 +1,4 @@
 SHELL := /bin/bash
-CASPER_INIT := $(wildcard ../casperscript/Resource/Init)
 GS ?= cs
 test: sodaki.cs
 	./$<
@@ -10,6 +9,8 @@ push:
 	git push -u githost master
 cover: bookcover.png
 bookcover.pdf: sodaki.cs .FORCE
+	# pdfwrite device doesn't have casperscript extensions, so need
+	# to strip out shebang line
 	tail -n +2 $< | $(GS) -sDEVICE=pdfwrite -sstdout=%stderr -o $@ -
 bookcover.png: bookcover.pdf
 	convert $< -background white -alpha remove $@
