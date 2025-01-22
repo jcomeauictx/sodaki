@@ -2,14 +2,10 @@
 /scriptname where
   {pop}
   {
-    (running without casperscript extensions, monkeypatching...) =
+    (started without casperscript extensions, including them now...) =
+    (casperscript.ps) runlibfile
+    casper
     /scriptname (sodaki) def
-    currentpagedevice /PageSize get dup
-    0 get /pagewidth exch def
-    1 get /pageheight exch def
-    /#only {pop} def
-    /# {pop} def
-    /#stack {} def
   }
   ifelse
 /centershow {

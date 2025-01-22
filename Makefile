@@ -1,5 +1,6 @@
 SHELL := /bin/bash
 CASPER_INIT := $(wildcard ../casperscript/Resource/Init)
+GS ?= /usr/local/casperscript/bin/gs
 test: sodaki.cs
 	./$<
 edit: sodaki.cs
@@ -9,7 +10,7 @@ push:
 	git push -u githost master
 cover: bookcover.png
 bookcover.pdf: sodaki.cs .FORCE
-	tail -n +2 $< | gs -sDEVICE=pdfwrite -sstdout=%stderr -o $@ -
+	tail -n +2 $< | $(GS) -sDEVICE=pdfwrite -sstdout=%stderr -o $@ -
 bookcover.png: bookcover.pdf
 	convert $< -background white -alpha remove $@
 .FORCE:
