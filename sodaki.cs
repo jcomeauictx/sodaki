@@ -1,5 +1,17 @@
 #!/usr/local/casperscript/bin/cs --
-/scriptname where {pop} {(casper.ps) runlibfile} ifelse
+/scriptname where
+  {pop}
+  {
+    (running without casperscript extensions, monkeypatching...) =
+    /scriptname (sodaki) def
+    currentpagedevice /PageSize get dup
+    0 get /pagewidth exch def
+    1 get /pageheight exch def
+    /#only {pop} def
+    /# {pop} def
+    /#stack {} def
+  }
+  ifelse
 /centershow {
   gsave
     dup false charpath pathbbox pop #stack  % pop yt, we only need xl and xr

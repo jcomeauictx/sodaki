@@ -8,5 +8,5 @@ push:
 	git push -u origin master
 	git push -u githost master
 bookcover.pdf: sodaki.cs .FORCE
-	tail -n +2 $< | cs -I$(CASPER_INIT) -sDEVICE=pdfwrite -o $@ -
+	tail -n +2 $< | gs -sDEVICE=pdfwrite -o $@ -
 .FORCE:
