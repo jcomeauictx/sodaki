@@ -2,9 +2,19 @@
 /scriptname where
   {(found scriptname: ) #only scriptname # pop}
   {
-    (started without casperscript extensions, including them now...) =
-    (casperscript.ps) runlibfile
-    casper
+    (started without scriptname available, looking for problem...) =
+    /casper where
+      {(found casper already available) # pop}
+      {
+	/docstrings where  % proof that casper has already been run
+	  {(casper extensions already loaded) # pop}
+	  {
+	    (loading casper extensions) #
+	    (casperscript.ps) runlibfile
+	  }
+	  ifelse
+      }
+      ifelse casper
     /scriptname (sodaki) def
   }
   ifelse
