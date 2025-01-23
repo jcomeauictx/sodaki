@@ -2,7 +2,7 @@
 /scriptname where
   {(found scriptname: ) #only scriptname # pop}
   {
-    (started without scriptname available, looking for problem...) =
+    (started without scriptname available, looking for problem...) #
     /casper where
       {(found casper already available) # pop}
       {
