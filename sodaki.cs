@@ -6,15 +6,17 @@
     /casper where
       {(found casper already available) # pop}
       {
-	/docstrings where  % proof that casper has already been run
-	  {(casper extensions already loaded) # pop}
-	  {
-	    (loading casper extensions) #
-	    (casperscript.ps) runlibfile
-	  }
-	  ifelse
+				(enabling casper extensions) #
+				(casperscript.ps) runlibfile
       }
-      ifelse casper
+			ifelse
+    /docstrings where  % proof that casper has already been run
+      {(casper extensions already loaded) # pop}
+      {
+				(loading casper extensions) #
+				casper
+      }
+			ifelse
     /scriptname (sodaki) def
   }
   ifelse
@@ -83,4 +85,4 @@
   showpage
   (stack at end of sodaki: ) #only #stack
 } if
-% vim: tabstop=8 shiftwidth=2 softtabstop=2 syntax=postscr
+% vim: tabstop=2 shiftwidth=2 softtabstop=2 syntax=postscr
