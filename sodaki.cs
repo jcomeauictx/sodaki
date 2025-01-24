@@ -3,6 +3,10 @@
   {(found scriptname: ) #only scriptname # pop}
   {
     (started without scriptname available, looking for problem...) #
+		{currentdict dictwords} stopped
+			{(dictwords not available) # clear}
+			{clear}
+			ifelse
     /casper where
       {(found casper already available) # pop}
       {
@@ -15,6 +19,7 @@
       {
 				(loading casper extensions) #
 				casper
+				(scriptname now: ) #only scriptname #
       }
 			ifelse
     /scriptname (sodaki) def
